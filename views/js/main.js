@@ -502,7 +502,7 @@ function updatePositions() {
   //moved this out of for loop as it does not need to be declared several times
   var scrollPositionVariable = document.body.scrollTop/1250;
   
-  //moved this calculation out of longer loop
+  //moved this calculation out of longer loop - similar to what mcs did here - https://discussions.udacity.com/t/p4-pizza-scrolling-rasterize-paint/30713/13
   var constArray = [];
   for (var i = 0; i < 5; i++) {
     constArray.push(Math.sin(scrollPositionVariable + (i%5)))
@@ -541,7 +541,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
     movingPizzas.appendChild(elem);
   }
-  //moved this call out of each scroll- credit to mcs: https://discussions.udacity.com/t/p4-pizza-scrolling-rasterize-paint/30713/12?u=jeggelke
+  //moved this call out of each scroll- credit to mcs: https://discussions.udacity.com/t/p4-pizza-scrolling-rasterize-paint/30713/12
   window.items = document.getElementsByClassName('mover');
   updatePositions();
 });
