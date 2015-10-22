@@ -438,7 +438,7 @@ var resizePizzas = function(size) {
         default:
           console.log("bug in sizeSwitcher");
       }     
-	var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer");
+	var randomPizzaContainer = document.getElementsByClassName("randomPizzaContainer");
     for (var i = 0; i < randomPizzaContainer.length; i++) {
       randomPizzaContainer[i].style.width = newWidth + "%";
     }
