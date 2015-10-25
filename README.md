@@ -1,8 +1,6 @@
 ## Website Performance Optimization portfolio project
 
-Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
-
-To get started, check out the repository, inspect the code,
+To open this portfolio, open the ```index.html``` file. To view the pizza page, open ```pizza.html```
 
 ### Getting started
 
@@ -28,3 +26,4 @@ To get started, check out the repository, inspect the code,
 * Changed ```items[i].style.left = items[i].basicLeft + 100 * phase + 'px'``` to use a transform method to prevent layout thrashing
 * Removed height/width during each ```movingPizzas``` iteration. Handling this with css instead
 * Moved ```window.items = document.getElementsByClassName('mover')``` from being called on each scroll
+* Calculated the number of background pizzas needed to fill the screen

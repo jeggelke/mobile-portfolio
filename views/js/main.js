@@ -439,7 +439,8 @@ var resizePizzas = function(size) {
           console.log("bug in sizeSwitcher");
       }     
 	var randomPizzaContainer = document.getElementsByClassName("randomPizzaContainer");
-    for (var i = 0; i < randomPizzaContainer.length; i++) {
+	var randomPizzaContainerLength = randomPizzaContainer.length;
+    for (var i = 0; i < randomPizzaContainerLength; i++) {
       randomPizzaContainer[i].style.width = newWidth + "%";
     }
   }
@@ -455,9 +456,10 @@ var resizePizzas = function(size) {
 
 window.performance.mark("mark_start_generating"); // collect timing data
 
+//moved pizzasDiv out of the loop
+var pizzasDiv = document.getElementById("randomPizzas");
 // This for-loop actually creates and appends all of the pizzas when the page loads
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
@@ -507,9 +509,9 @@ function updatePositions() {
   for (var i = 0; i < 5; i++) {
     constArray.push(Math.sin(scrollPositionVariable + (i%5)))
   }
-  
+  var phase;
   for (i = 0; i < items.length; i++) {
-    var phase = constArray[i % 5];
+    phase = constArray[i % 5];
 	//use transform instead of original method
 	window.items[i].style.transform = 'translateX(' + ((i % 8) * 128 + (100 * phase)) + 'px)';
   }
@@ -526,13 +528,20 @@ function updatePositions() {
   }
 }
 
+//computer number of pizzas
+  var windowHeight = window.screen.height;
+  var numberOfRows = Math.round(windowHeight / 200);
+
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
+  var numberOfPizzas = numberOfRows * cols;  
   var s = 256;
+  console.log(numberOfPizzas);
   var movingPizzas = document.getElementById("movingPizzas1");
-  for (var i = 0; i < 24; i++) {
-    var elem = document.createElement('img');
+  var elem;
+  for (var i = 0; i < numberOfPizzas; i++) {
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/resizedPizza.png";
     //removed styling during each iteration - handled this with CSS instead
